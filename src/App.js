@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Layout from './components/Layout';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import AddTodo from './pages/AddTodo';
+import EditTodo from './pages/EditTodo';
+import TodoDetails from './pages/TodoDetails';
+import { TodoProvider } from './context/TodoContext';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <TodoProvider>
+        <Router>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/add" element={<AddTodo />} />
+              <Route path="/edit/:id" element={<EditTodo />} />
+              <Route path="/todo/:id" element={<TodoDetails />} />
+            </Routes>
+          </Layout>
+        </Router>
+      </TodoProvider>
+    </ThemeProvider>
   );
 }
 
