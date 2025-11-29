@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
                             {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
                         </button>
                         {!isAddPage && (
-                            <Link to="/add" className="btn btn-primary">
+                            <Link to="add" className="btn btn-primary">
                                 <Plus size={18} />
                                 Add Task
                             </Link>
