@@ -61,7 +61,7 @@ const TodoForm = ({ initialData, onSubmit, title }) => {
                     />
                 </div>
                 <div className="form-actions">
-                    <button type="button" onClick={() => navigate("..")} className="btn btn-secondary">
+                    <button type="button" onClick={() => navigate(-1)} className="btn btn-secondary">
                         <X size={18} />
                         Cancel
                     </button>
